@@ -1,0 +1,56 @@
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h2>User Management</h2>
+                    </div>
+                    <div class="col-sm-7">
+                        <%= link_to '<i class="material-icons">&#xE147;</i> New user'.html_safe, new_user_path, class: 'btn btn-secondary' %>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Avatar</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Nationality</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Language</th>
+                        <th>Role</th>
+                        <th>Bio</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @users.each do |user| %>
+                        <tr>
+                            <td><%= link_to user.avatar, user_path(user) %></td>
+                            <td><%= link_to user.first_name, user_path(user) %></td>
+                            <td><%= link_to user.last_name, user_path(user) %></td>
+                            <td><%= link_to user.nationality, user_path(user) %></td>
+                            <td><%= link_to user.address, user_path(user) %></td>
+                            <td><%= link_to user.phone, user_path(user) %></td>
+                            <td><%= link_to user.language, user_path(user) %></td>
+                            <td><%= link_to user.role, user_path(user) %></td>
+                            <td><%= link_to user.bio, user_path(user) %></td>
+                            <td><%= link_to user.description, user_path(user) %></td>
+                            <td><%= link_to user.status, user_path(user) %></td>
+                            <td><%= link_to 'Edit', edit_user_path(user) %></td>
+                            <td><%= link_to 'Destroy', user_path(user),
+                                method: :delete,
+                                data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
