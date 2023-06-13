@@ -60,3 +60,7 @@ gem "devise", "~> 4.1"
 gem 'net-http', '0.3.2' # explicit added to suppress warnings
 
 gem 'jquery-rails'
+
+gem 'carrierwave'
+
+gem 'mini_magick'

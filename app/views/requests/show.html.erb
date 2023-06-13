@@ -1,0 +1,42 @@
+<p>
+  <strong>Name:</strong>
+  <%= @request.name %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @request.start_date %>
+</p>
+ 
+<p>
+  <strong>End date:</strong>
+  <%= @request.end_date %>
+</p>
+
+<p>
+  <strong>Total days:</strong>
+  <%= @request.total_days %>
+</p>
+
+<p>
+  <strong>Shift:</strong>
+  <%= @request.shift_time %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @request.reason %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @request.status %>
+</p>
+
+<p>
+  <strong>Point:</strong>
+  <%= @request.point %>
+</p>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>

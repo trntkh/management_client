@@ -1,6 +1,6 @@
 <p>
   <strong>Avatar:</strong>
-  <%= @user.avatar %>
+  <%= image_tag(@user.avatar_url) if @user.avatar? %>
 </p>
  
 <p>

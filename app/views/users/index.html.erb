@@ -8,6 +8,7 @@
                     </div>
                     <div class="col-sm-7">
                         <%= link_to '<i class="material-icons">&#xE147;</i> New user'.html_safe, new_user_path, class: 'btn btn-secondary' %>
+                        <%= link_to '<i class="material-icons">&#xE147;</i> New request'.html_safe, new_request_path, class: 'btn btn-secondary' %>
                     </div>
                 </div>
             </div>
@@ -32,7 +33,7 @@
                 <tbody>
                     <% @users.each do |user| %>
                         <tr>
-                            <td><%= link_to user.avatar, user_path(user) %></td>
+                            <td><%= image_tag(user.avatar.thumb.url) if user.avatar? %></td>
                             <td><%= link_to user.first_name, user_path(user) %></td>
                             <td><%= link_to user.last_name, user_path(user) %></td>
                             <td><%= link_to user.nationality, user_path(user) %></td>

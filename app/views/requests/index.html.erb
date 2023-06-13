@@ -1,0 +1,45 @@
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h2>Request Management</h2>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Start day</th>
+                        <th>End day</th>
+                        <th>Total days</th>
+                        <th>Shift</th>
+                        <th>Reason</th>
+                        <th>Status</th>
+                        <th>Point</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @requests.each do |request| %>
+                        <tr>
+                            <td><%= request.name %></td>
+                            <td><%= request.start_date %></td>
+                            <td><%= request.end_date %></td>
+                            <td><%= request.total_days%></td>
+                            <td><%= request.shift_time %></td>
+                            <td><%= request.reason %></td>
+                            <td><%= request.status %></td>
+                            <td><%= request.point %></td>
+                            <td><%= link_to 'Edit', edit_request_path(request) %></td>
+                            <td><%= link_to 'Destroy', request_path(request),
+                                method: :delete,
+                                data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
