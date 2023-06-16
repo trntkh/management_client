@@ -16,8 +16,8 @@ class RequestsController < ApplicationController
     end
      
     def create
-        @request = Request.new(request_params)
         @request.user_id = current_user.id
+        @request = Requests.new(request_params)
         if @request.save
             redirect_to @request
         else
@@ -46,5 +46,4 @@ class RequestsController < ApplicationController
     def request_params
         params.require(:request).permit(:admin_id, :start_date, :end_date, :total_days, :shift_time, :reason, :name, :status, :point)
     end
-    
 end

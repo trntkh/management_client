@@ -32,6 +32,7 @@
                             <td><%= request.reason %></td>
                             <td><%= request.status %></td>
                             <td><%= request.point %></td>
+                            <td><%= link_to 'Show', request_path(request) %></td>
                             <td><%= link_to 'Edit', edit_request_path(request) %></td>
                             <td><%= link_to 'Destroy', request_path(request),
                                 method: :delete,
