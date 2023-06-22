@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
     def create
         @request = Request.find(params[:request_id])
         @comment = @request.comments.new(comment_params)
-        # @comment.user_id = current_user.id
+        @comment.user_id = current_user.id
         if @comment.save
             redirect_to request_path(@request)
         else

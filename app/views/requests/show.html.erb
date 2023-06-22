@@ -38,8 +38,13 @@
   <%= @request.point %>
 </p>
 
-<%= render @request.comments %>
-<%= render 'comments/form' %>
+<div class="card">
+  <div class="card-body">
+    <p class="font-weight-bold">Comments</p>
+    <%= render @request.comments %>
+    <%= render 'comments/form' %>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_request_path(@request) %> |
 <%= link_to 'Back', requests_path %>
