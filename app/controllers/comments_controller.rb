@@ -9,6 +9,13 @@ class CommentsController < ApplicationController
             redirect_to request_path(@request), notice: "Comment was not created successfully!"
         end
     end
+
+    def destroy
+        @request = Request.find(params[:request_id])
+        @comment = @arequest.comments.find(params[:id])
+        @comment.destroy
+        redirect_to request_path(@request)
+    end
      
     private
     def comment_params

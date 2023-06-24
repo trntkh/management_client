@@ -2,47 +2,50 @@
 <div class="row">
     <!-- Start col -->
     <% @requests.each do |request| %>
-    <div class="col-lg-6">
-        <div class="card m-b-30">
-            <div class="card-body py-5">
-                <div class="row">
-                    <div class="col-lg-3 text-center">
-                        <%= image_tag(request.user.avatar.thumb.url) if request.user.avatar? %>
+        <div class="col-lg-6">
+            <div class="card m-b-30">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-end mt-2 mr-2">
+                        <%= link_to edit_request_path(request), :class=>"btn btn-success mr-1" do %><i class="fas fa-pencil-alt" aria-hidden="true" target="_blank"></i><% end %>
+                        <%= link_to request_path(request), :class=>"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } do %><i class="far fa-trash-alt" aria-hidden="true" target="_blank"></i><% end %>
                     </div>
-                    <div class="col-lg-9">
-                        <h4><%= request.name %></h4>
-                        <p><%= request.user.role %></p>
-                        <div class="button-list mt-4 mb-3">
-                            <%= link_to 'Show', request_path(request), class: "btn btn-primary-rgba" %>
-                            <%= link_to 'Edit', edit_request_path(request), class: "btn btn-success-rgba" %>
+                    <div class="row">               
+                        <div class="col-lg-3 text-center">
+                            <%= image_tag(request.user.avatar.thumb.url) if request.user.avatar? %>
                         </div>
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row" class="p-1">Start date:</th>
-                                        <td class="p-1"><%= request.start_date.strftime("%d/%m/%Y") %></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="p-1">End date:</th>
-                                        <td class="p-1"><%= request.end_date.strftime("%d/%m/%Y") %></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="p-1">Reason:</th>
-                                        <td class="p-1"><%= request.reason %></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="p-1">Point:</th>
-                                        <td class="p-1"><%= request.point %></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="col-lg-9">
+                            <h4><%= request.name %></h4>
+                            <p><%= request.user.role %></p>
+                            <div class="button-list mt-4 mb-3">
+                                <%= link_to 'Show', request_path(request), class: "btn btn-primary-rgba" %>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-borderless mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" class="p-1">Start date:</th>
+                                            <td class="p-1"><%= request.start_date.strftime("%d/%m/%Y") %></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="p-1">End date:</th>
+                                            <td class="p-1"><%= request.end_date.strftime("%d/%m/%Y") %></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="p-1">Reason:</th>
+                                            <td class="p-1"><%= request.reason %></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="p-1">Point:</th>
+                                            <td class="p-1"><%= request.point %></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     <% end %>
     <!-- End col -->
 </div>

@@ -18,8 +18,8 @@ class RequestsController < ApplicationController
     end
      
     def create
+        @request = Request.new(request_params)
         @request.user_id = current_user.id
-        @request = Requests.new(request_params)
         if @request.save
             redirect_to @request
         else
