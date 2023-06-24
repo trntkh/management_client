@@ -1,46 +1,49 @@
-<div class="container-xl">
-    <div class="table-responsive">
-        <div class="table-wrapper">
-            <div class="table-title">
+<div class="container">
+<div class="row">
+    <!-- Start col -->
+    <% @requests.each do |request| %>
+    <div class="col-lg-6">
+        <div class="card m-b-30">
+            <div class="card-body py-5">
                 <div class="row">
-                    <div class="col-sm-5">
-                        <h2>Request Management</h2>
+                    <div class="col-lg-3 text-center">
+                        <%= image_tag(request.user.avatar.thumb.url) if request.user.avatar? %>
+                    </div>
+                    <div class="col-lg-9">
+                        <h4><%= request.name %></h4>
+                        <p><%= request.user.role %></p>
+                        <div class="button-list mt-4 mb-3">
+                            <%= link_to 'Show', request_path(request), class: "btn btn-primary-rgba" %>
+                            <%= link_to 'Edit', edit_request_path(request), class: "btn btn-success-rgba" %>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-borderless mb-0">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="p-1">Start date:</th>
+                                        <td class="p-1"><%= request.start_date.strftime("%d/%m/%Y") %></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-1">End date:</th>
+                                        <td class="p-1"><%= request.end_date.strftime("%d/%m/%Y") %></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-1">Reason:</th>
+                                        <td class="p-1"><%= request.reason %></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="p-1">Point:</th>
+                                        <td class="p-1"><%= request.point %></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Start day</th>
-                        <th>End day</th>
-                        <th>Total days</th>
-                        <th>Shift</th>
-                        <th>Reason</th>
-                        <th>Status</th>
-                        <th>Point</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% @requests.each do |request| %>
-                        <tr>
-                            <td><%= request.name %></td>
-                            <td><%= request.start_date %></td>
-                            <td><%= request.end_date %></td>
-                            <td><%= request.total_days%></td>
-                            <td><%= request.shift_time %></td>
-                            <td><%= request.reason %></td>
-                            <td><%= request.status %></td>
-                            <td><%= request.point %></td>
-                            <td><%= link_to 'Show', request_path(request) %></td>
-                            <td><%= link_to 'Edit', edit_request_path(request) %></td>
-                            <td><%= link_to 'Destroy', request_path(request),
-                                method: :delete,
-                                data: { confirm: 'Are you sure?' } %></td>
-                        </tr>
-                    <% end %>
-                </tbody>
-            </table>
         </div>
     </div>
+    <% end %>
+    <!-- End col -->
+</div>
 </div>

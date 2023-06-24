@@ -9,8 +9,8 @@ class RequestsController < ApplicationController
      
     def new
         @request = Request.new
-        @request.start_date = Date.today.strftime('%d/%m/%Y')
-        @request.end_date = Date.today.strftime('%d/%m/%Y')
+        @request.start_date = Date.today
+        @request.end_date = Date.today
     end
     
     def edit

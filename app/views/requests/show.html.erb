@@ -5,12 +5,12 @@
 
 <p>
   <strong>Start date:</strong>
-  <%= @request.start_date %>
+  <%= @request.start_date.strftime("%d/%m/%Y") %>
 </p>
  
 <p>
   <strong>End date:</strong>
-  <%= @request.end_date %>
+  <%= @request.end_date.strftime("%d/%m/%Y") %>
 </p>
 
 <p>
