@@ -1,6 +1,11 @@
-<div class="card my-1">
-    <div class="card-body">
-        <%= comment.user.full_name %>
-        <%= comment.body %>
-    </div>
-</div>
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        <%= image_tag(comment.user.avatar.thumb.url, class:"rounded-circle") if comment.user.avatar? %>
+        <div class="list-inline-item">
+            <strong class=""><%= comment.user.full_name %></strong>
+            <p class="font-italic font-weight-light"><%= comment.body %></p>
+        </div>
+    </li>
+    <div class="clearfix"></div>
+    <hr>
+</ul>

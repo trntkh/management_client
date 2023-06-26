@@ -38,11 +38,18 @@
   <%= @request.point %>
 </p>
 
-<div class="card">
-  <div class="card-body">
-    <p class="font-weight-bold">Comments</p>
-    <%= render @request.comments %>
-    <%= render 'comments/form' %>
+<div class="container">
+  <div class="col-md-8 col-sm-12">
+    <div class="card">
+      <div class="card-header bg-secondary">
+          <h5>Comment</h5>
+      </div>
+        <div class="card-body">
+          <%= render @request.comments%>
+          <%= render 'comments/form' %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
