@@ -1,5 +1,5 @@
 <ul class="list-group list-group-flush">
-    <li class="list-group-item">
+    <li class="list-group-item border-top-0">
         <%= image_tag(comment.user.avatar.thumb.url, class:"rounded-circle") if comment.user.avatar? %>
         <div class="list-inline-item">
             <strong class=""><%= comment.user.full_name %></strong>
@@ -7,5 +7,5 @@
         </div>
     </li>
     <div class="clearfix"></div>
-    <hr>
+    <br>
 </ul>
