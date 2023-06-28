@@ -43,9 +43,9 @@ class RequestsController < ApplicationController
      
         redirect_to requests_path
     end
-     
+
     private
     def request_params
-        params.require(:request).permit(:admin_id, :start_date, :end_date, :total_days, :shift_time, :reason, :name, :status, :point)
+        params.require(:request).permit(:admin_id, :start_date, :end_date, :total_days, :shift_time, :reason, :status, :name, :point)
     end
 end

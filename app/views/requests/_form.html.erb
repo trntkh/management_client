@@ -37,12 +37,12 @@
                                 <%= f.label :reason %>
                                 <%= f.text_field :reason, class: "form-control" %>
                             </div>
-
-                            <div class="form-floating mb-3">
-                                <%= f.label :status %>
-                                <%= f.text_field :status, class: "form-control" %>
-                            </div>
-
+                            <% if current_user.admin? %>
+                                <div class="form-floating mb-3">
+                                    <%= f.label :status %>
+                                    <%= f.select :status, Request.statuses.keys, {}, { class: "form-control" } %>
+                                </div>
+                            <% end %>
                             <div class="form-floating mb-3">
                                 <%= f.label :point %>
                                 <%= f.text_field :point, class: "form-control" %>
