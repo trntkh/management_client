@@ -4,7 +4,11 @@
             <div class="col-lg-10 col-xl-9 mx-auto">
                 <div class="card flex-row my-5 border-1 shadow rounded-3 overflow-hidden">
                 <div class="card-body p-4 p-sm-5">
-                    <h5 class="card-title text-center mb-5 fw-light fs-5">REGISTER</h5>
+                    <% if params[:controller] == 'users' && (params[:action]) == 'new' %>
+                        <h5 class="card-title text-center mb-5 fw-light fs-5">REGISTER</h5>
+                    <% else %>
+                        <h5 class="card-title text-center mb-5 fw-light fs-5">EDITING USER</h5>
+                    <% end %>
                     <%= form_for @user do |f| %>
                         <div class="form-floating mb-3">
                             <label class="btn btn-outline-secondary btn-change-avatar">
@@ -23,6 +27,21 @@
                         <div class="form-floating mb-3">
                             <%= f.label :last_name %>
                             <%= f.text_field :last_name, class: "form-control" %>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <%= f.label :email %><br />
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <%= f.label :password %>
+                            <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <%= f.label :password_confirmation %><br />
+                            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
                         </div>
 
                         <div class="form-floating mb-3">

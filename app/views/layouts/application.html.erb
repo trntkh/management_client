@@ -18,10 +18,13 @@
   <body>
     <div class="container-fluid">
       <%= render 'layouts/nav' %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <h5 class="notice text-center text-warning"><%= notice %></h5>
+      <h5 class="alert text-center text-danger"><%= alert %></h5>
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>
   </body>
 </html>
+
+
+

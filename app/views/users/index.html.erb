@@ -6,8 +6,17 @@
                 <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
                 <div class="d-flex bd-highlight">
                     <h3 class="mr-auto bd-highlight">User Management</h3>
-                    <%= link_to "New User", new_user_path, class: "btn btn-outline-primary mr-1" %>
-                    <%= link_to "New Leave Request", new_request_path, class: "btn btn-outline-primary" %>
+                    <% if current_user.admin? %>
+                        <%= link_to "New User", new_user_path, class: "btn btn-outline-primary mr-1" %>
+                    <% end %>
+
+                    <% if current_user.admin? %>
+                        <%= link_to "See All Requests", requests_path, class: "btn btn-outline-primary" %>
+                    <% end %>
+
+                    <% if !current_user.admin? %>
+                        <%= link_to "New Leave Request", new_request_path, class: "btn btn-outline-primary" %>
+                    <% end %>
                 </div>
                 <table class="table manage-candidates-top mb-0">
                     <thead>
