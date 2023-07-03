@@ -15,9 +15,14 @@
                     <% end %>
 
                     <% if !current_user.admin? %>
-                        <%= link_to "New Leave Request", new_request_path, class: "btn btn-outline-primary" %>
+                        <%= link_to "New Leave Request", new_request_path, class: "btn btn-outline-primary mr-1" %>
+                    <% end %>
+
+                    <% if !current_user.admin? %>
+                        <%= link_to "See The Requests", requests_path, class: "btn btn-outline-primary" %>
                     <% end %>
                 </div>
+
                 <table class="table manage-candidates-top mb-0">
                     <thead>
                         <tr>
@@ -49,25 +54,18 @@
                                 <td>
                                     <ul class="list-unstyled mb-0 d-flex justify-content-end">
                                         <li><%= link_to user_path(user), :class=> "text-primary" do %><i class="fa-solid fa-eye" aria-hidden="true" target="_blank"></i><% end %></li>
-                                        <li><%= link_to edit_user_path(user), :class=> "text-primary" do %><i class="fas fa-pencil-alt" aria-hidden="true" target="_blank"></i><% end %></li>
-                                        <li><%= link_to user_path(user), :class=> "text-primary", method: :delete, data: { confirm: 'Are you sure?' } do %><i class="far fa-trash-alt" aria-hidden="true" target="_blank"></i><% end %></li>
+                                        <% if current_user.admin? || user.id == current_user.id %>
+                                            <li><%= link_to edit_user_path(user), :class=> "text-primary" do %><i class="fas fa-pencil-alt" aria-hidden="true" target="_blank"></i><% end %></li>
+                                        <% end %>
+                                        <% if current_user.admin? %>
+                                            <li><%= link_to user_path(user), :class=> "text-primary", method: :delete, data: { confirm: 'Are you sure?' } do %><i class="far fa-trash-alt" aria-hidden="true" target="_blank"></i><% end %></li>
+                                        <% end %>
                                     </ul>
                                 </td>
                             </tr>
                         <% end %>
                     </tbody>
                 </table>
-
-                <div class="text-center mt-3 mt-sm-3">
-                    <ul class="pagination justify-content-center mb-0">
-                        <li class="page-item disabled"> <span class="page-link">Prev</span> </li>
-                        <li class="page-item active" aria-current="page"><span class="page-link">1 </span> <span class="sr-only">(current)</span></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">...</a></li>
-                        <li class="page-item"> <a class="page-link" href="#">Next</a> </li>
-                    </ul>
-                </div>
             </div>
             </div>
         </div>

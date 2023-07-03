@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :requests
+  has_many :requests, dependent: :destroy
   has_many :comments
   mount_uploader :avatar, AvatarUploader
   enum user_type: {employee: 0, manager: 1, admin: 2}
