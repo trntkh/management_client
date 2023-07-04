@@ -17,6 +17,11 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     end
 
+    def account
+        @title = 'Account'
+        @user = User.find(params[:id])
+    end
+
     def create
         @user = User.new(user_params)
         if @user.save
@@ -29,7 +34,11 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         if @user.update(user_params)
+            flash[:success] = "Profile updated"
+            sign_in @user
             redirect_to @user
+        elsif @title = "Account"
+            render 'account'
         else
             render 'edit'
         end

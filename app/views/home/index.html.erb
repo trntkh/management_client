@@ -1,6 +1,0 @@
-<h1>WELCOME</h1>
-<% if user_signed_in? %> 
-  <%= link_to "User Management", controller: 'users' %>
-<% else %>
-  <%= link_to "Sign in", new_user_session_path %> 
-<% end %>
