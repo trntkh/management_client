@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users do
     member do
-      get :account
+      get :change_password, :my_requests
     end
   end
   resources :requests do

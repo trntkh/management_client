@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     def index
         @users = User.filter_user_by(params)
     end
+    
+    def my_requests
+        @requests = Request.where(user_id: current_user.id)
+    end
 
     def show
         @user = User.find(params[:id])
@@ -17,8 +21,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     end
 
-    def account
-        @title = 'Account'
+    def change_password
         @user = User.find(params[:id])
     end
 
@@ -34,11 +37,9 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         if @user.update(user_params)
-            flash[:success] = "Profile updated"
+            flash[:alert] = "Profile updated"
             sign_in @user
             redirect_to @user
-        elsif @title = "Account"
-            render 'account'
         else
             render 'edit'
         end
