@@ -12,10 +12,7 @@
                                 <%= image_tag(request.user.avatar.thumb.url) if request.user.avatar? %>
                             </div>
                             <div class="col-lg-6">
-                                <h4><%= request.name %></h4>
-                                <p><%= request.user.role %></p>
-                                <div class="button-list mt-4 mb-3"> 
-                                </div>
+                                <h4><%= link_to request.name, request_path(request), class: 'text-dark' %></h4>
                                 <div class="table-responsive">
                                     <table class="table table-borderless mb-0">
                                         <tbody>
@@ -38,6 +35,10 @@
                                         </tbody>
                                     </table>
                                 </div>
+                            </div>
+                            <div class="col-lg-3 text-right">
+                                <%= link_to edit_request_path(request), :class=>"btn btn-success" do %><i class="fas fa-pencil-alt"></i><% end %>      
+                                <%= link_to request_path(request), :class=>"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } do %><i class="far fa-trash-alt"></i><% end %>
                             </div>
                         </div>
                     </div>
