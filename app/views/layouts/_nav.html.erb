@@ -2,12 +2,11 @@
     <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto font-weight-bold">
             <li class="nav-item"><%= link_to "Home", users_path, class: "nav-link" %></li>
-            
-             <% if user_signed_in? && !current_user.admin? %>
-                <li class="nav-item"><%= link_to "My Requests", my_requests_user_path(current_user.id), class: "nav-link" %></li>  
+            <% if user_signed_in? && !current_user.admin? %>
+                <li class="nav-item"><%= link_to "My Requests", my_requests_user_path(current_user), class: "nav-link" %></li>  
             <% end %>
-
             <% if user_signed_in? %>
+                <li class="nav-item"><%= link_to 'My Page', user_path(current_user), class: "nav-link" %></li>
                 <li class="nav-item"><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
             <% end %>
         </ul>
