@@ -61,30 +61,29 @@
                             <%= f.text_field :phone, class: "form-control" %>
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <%= f.label :language %>
-                            <%= f.text_field :language, class: "form-control" %>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                        <%= f.label :role %>
-                            <%= f.text_field :role, class: "form-control" %>
-                        </div>
+                        <% if current_user.admin? %>
+                            <div class="form-floating mb-3">
+                                <%= f.label :role %>
+                                <%= f.text_field :role, class: "form-control" %>
+                            </div>
+                        <% end %>
 
                         <div class="form-floating mb-3">
                             <%= f.label :bio %>
-                            <%= f.text_field :bio, class: "form-control" %>
+                            <%= f.text_area :bio, class: "form-control" %>
                         </div>
 
                         <div class="form-floating mb-3">
                             <%= f.label :description %>
-                            <%= f.text_field :description, class: "form-control" %>
+                            <%= f.text_area :description, class: "form-control" %>
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <%= f.label :status %>
-                            <%= f.text_field :status, class: "form-control" %>
-                        </div>
+                        <% if !current_user.employee? %>
+                            <div class="form-floating mb-3">
+                                <%= f.label :status %>
+                                <%= f.text_field :status, class: "form-control" %>
+                            </div>
+                        <% end %>
 
                         <div class="d-flex justify-content-center">
                             <%= f.submit "Save", class: "btn btn-lg btn-primary btn-login fw-bold text-uppercase" %>

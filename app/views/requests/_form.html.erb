@@ -29,7 +29,7 @@
                             </div>
 
                             <div class="form-floating mb-3">
-                                <%= f.label :shift_time %>
+                                <%= f.label "Shift time of" %>
                                 <%= f.text_field :shift_time, class: "form-control" %>
                             </div>
 
@@ -43,10 +43,6 @@
                                     <%= f.select :status, Request.statuses.keys, {}, { class: "form-control" } %>
                                 </div>
                             <% end %>
-                            <div class="form-floating mb-3">
-                                <%= f.label :point %>
-                                <%= f.text_field :point, class: "form-control" %>
-                            </div>
 
                             <% if current_user.admin? %>
                                 <div class="d-flex justify-content-center">
