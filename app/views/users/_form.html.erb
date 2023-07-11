@@ -10,16 +10,16 @@
                         <h5 class="card-title text-center mb-5 fw-light fs-5">EDITING USER</h5>
                     <% end %>
                     <%= form_for @user do |f| %>
-                        <div class="form-floating mb-3">
-                            <label class="btn btn-outline-secondary btn-change-avatar">
-                                Upload avatar
+                        <%= image_tag "user-avatar.jpeg", id: "blah", style: "height:170ps;width:170px;", class: "mx-auto mb-1 d-block" %>
+                        <div class="d-flex justify-content-center">
+                            <label class="btn btn-outline-dark btn-change-avatar">
+                                Upload Avatar
                                 <span style="display:none;">
                                     <%= f.file_field :avatar, id: "fileUploader" %>
                                 </span>
                             </label>
-                            <img id="blah" src="" style="height:200ps;width:200px;">
                         </div>
-
+                       
                         <div class="form-floating mb-3">
                             <%= f.label :first_name %>
                             <%= f.text_field :first_name, class: "form-control" %>
