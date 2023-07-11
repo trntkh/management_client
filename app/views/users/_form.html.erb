@@ -17,6 +17,7 @@
                                     <%= f.file_field :avatar, id: "fileUploader" %>
                                 </span>
                             </label>
+                            <img id="blah" src="" style="height:200ps;width:200px;">
                         </div>
 
                         <div class="form-floating mb-3">
@@ -81,7 +82,7 @@
                         <% if !current_user.employee? %>
                             <div class="form-floating mb-3">
                                 <%= f.label :status %>
-                                <%= f.text_field :status, class: "form-control" %>
+                                <%= f.select :status,  User.statuses.keys, {}, { class: "form-control text-capitalize" } %>
                             </div>
                         <% end %>
 
@@ -98,3 +99,20 @@
         </div>
     </div>
 </body>
+
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#fileUploader").change(function(){
+        readURL(this);
+    });
+</script>
