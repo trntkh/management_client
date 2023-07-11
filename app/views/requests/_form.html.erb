@@ -24,12 +24,7 @@
                             </div>
 
                             <div class="form-floating mb-3">
-                                <%= f.label :total_days %>
-                                <%= f.text_field :total_days, class: "form-control" %>
-                            </div>
-
-                            <div class="form-floating mb-3">
-                                <%= f.label "Shift time of" %>
+                                <%= f.label "Shift time off" %>
                                 <%= f.text_field :shift_time, class: "form-control" %>
                             </div>
 
@@ -40,7 +35,7 @@
                             <% if current_user.admin? %>
                                 <div class="form-floating mb-3">
                                     <%= f.label :status %>
-                                    <%= f.select :status, Request.statuses.keys, {}, { class: "form-control" } %>
+                                    <%= f.select :status, Request.statuses.keys, {}, { class: "form-control text-capitalized" } %>
                                 </div>
                             <% end %>
 
