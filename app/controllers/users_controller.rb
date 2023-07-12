@@ -37,8 +37,7 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         if @user.update(user_params)
-            flash[:alert] = "Profile updated"
-            sign_in @user
+            flash[:notice] = "Profile updated"
             redirect_to @user
         else
             render 'edit'

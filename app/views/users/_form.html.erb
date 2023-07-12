@@ -10,7 +10,11 @@
                         <h5 class="card-title text-center mb-5 fw-light fs-5">EDITING USER</h5>
                     <% end %>
                     <%= form_for @user do |f| %>
-                        <%= image_tag "user-avatar.jpeg", id: "blah", style: "height:170ps;width:170px;", class: "mx-auto mb-1 d-block" %>
+                        <% if params[:controller] == 'users' && (params[:action]) == 'new' %>
+                            <%= image_tag "user-avatar.jpeg", id: "blah", style: "height:170ps;width:170px;", class: "mx-auto mb-1 d-block" %>
+                        <% else %>
+                            <%= image_tag(@user.avatar_url, id: "blah", style: "height:170ps;width:170px;", class: "mx-auto mb-1 d-block")  %>
+                        <% end %>
                         <div class="d-flex justify-content-center">
                             <label class="btn btn-outline-dark btn-change-avatar">
                                 Upload Avatar
@@ -19,7 +23,7 @@
                                 </span>
                             </label>
                         </div>
-                       
+
                         <div class="form-floating mb-3">
                             <%= f.label :first_name %>
                             <%= f.text_field :first_name, class: "form-control" %>
