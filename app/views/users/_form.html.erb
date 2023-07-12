@@ -68,8 +68,8 @@
 
                         <% if current_user.admin? %>
                             <div class="form-floating mb-3">
-                                <%= f.label :role %>
-                                <%= f.text_field :role, class: "form-control" %>
+                                <%= f.label "User type" %>
+                                <%= f.select :user_type,  User.user_types.keys, {}, { class: "form-control text-capitalize" } %>
                             </div>
                         <% end %>
 

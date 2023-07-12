@@ -23,7 +23,7 @@ class RequestsController < ApplicationController
         total_days = (request_params[:end_date].to_date - request_params[:start_date].to_date).to_i
         @request = Request.new(request_params)
         @request.user_id = current_user.id
-       
+        @request.total_days = total_days
         @request.point = total_days
         if @request.save
             redirect_to @request
@@ -31,10 +31,10 @@ class RequestsController < ApplicationController
             render 'new'
         end
     end
-     
+
     def update
         @request = Request.find(params[:id])
-        total_days = (request_params[:end_date].to_date - request_params[:start_date].to_date).to_i
+        total_days = (request_params[:end_date].to_date - request_params[:start_date].to_date).to_i 
         @request.total_days = total_days
         if @request.update(request_params)
             redirect_to @request
