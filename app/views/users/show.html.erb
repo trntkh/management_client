@@ -7,8 +7,7 @@
 							<div class="d-flex flex-column align-items-center text-center">
 							  <%= image_tag(@user.avatar.thumb.url) if @user.avatar? %>
 								<div class="mt-3">
-								  <h4><%= @user.full_name %></h4>
-									<p class="text-secondary mb-1"><%= @user.role %></p>
+									<h4><%= @user.full_name %></h4>
 									<p class="text-muted font-size-sm"><%= @user.address %></p>
 									<% if @user.id == current_user.id || current_user.admin? %>
 										<%= link_to 'Change Password', change_password_user_path(@user), class: "btn btn-outline-primary" %>
@@ -29,14 +28,6 @@
 					  <div class="card-body">
 							<div class="row mb-3">
 								<div class="col-sm-3">
-									<h6 class="mb-0">Status:</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<%= @user.status %>
-								</div>
-							</div>
-							<div class="row mb-3">
-								<div class="col-sm-3">
 									<h6 class="mb-0">Nationality:</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
@@ -49,14 +40,6 @@
 								</div>
 								<div class="col-sm-9 text-secondary">
 									<%= @user.phone %>
-								</div>
-							</div>
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Language:</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<%= @user.language %>
 								</div>
 							</div>
 							<div class="row mb-3">
