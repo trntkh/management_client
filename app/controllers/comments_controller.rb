@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
     def destroy
         @request = Request.find(params[:request_id])
-        @comment = @arequest.comments.find(params[:id])
+        @comment = @request.comments.find(params[:id])
         @comment.destroy
         redirect_to request_path(@request)
     end
