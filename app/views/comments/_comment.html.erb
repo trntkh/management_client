@@ -13,7 +13,7 @@
                 </ul>
             </div>
             <div class="col-lg-3 text-right">
-                <%= link_to 'X', [comment.request, comment], method: :delete, class: "btn btn-sm btn-danger mt-1 mr-1" %>
+                <%= link_to [comment.request, comment], class: "btn btn-sm btn-outline-danger mt-1 mr-1", method: :delete do %><i class="far fa-trash-alt" aria-hidden="true" target="_blank"></i><% end %>
             </div>
         </div>
     </div>
