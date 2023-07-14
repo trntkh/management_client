@@ -51,12 +51,12 @@
                                     </td>
                                     <td>
                                         <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                                            <li><%= link_to user_path(user), :class=> "text-primary" do %><i class="fa-solid fa-eye" aria-hidden="true" target="_blank"></i><% end %></li>
+                                            <li><%= link_to user_path(user), :class=> "text-primary" do %><i class="fa-solid fa-eye" style="font-size: 20px" aria-hidden="true" target="_blank"></i><% end %></li>
                                             <% if current_user.admin? || user.id == current_user.id %>
-                                                <li><%= link_to edit_user_path(user), :class=> "text-success" do %><i class="fas fa-pencil-alt" aria-hidden="true" target="_blank"></i><% end %></li>
+                                                <li><%= link_to edit_user_path(user), :class=> "text-success" do %><i class="fas fa-pencil-alt" style="font-size: 20px" aria-hidden="true" target="_blank"></i><% end %></li>
                                             <% end %>
                                             <% if current_user.admin? %>
-                                                <li><%= link_to user_path(user), :class=> "text-danger", method: :delete, data: { confirm: 'Are you sure?' } do %><i class="far fa-trash-alt" aria-hidden="true" target="_blank"></i><% end %></li>
+                                                <li><%= link_to user_path(user), :class=> "text-danger", method: :delete, data: { confirm: 'Are you sure?' } do %><i class="far fa-trash-alt" style="font-size: 20px" aria-hidden="true" target="_blank"></i><% end %></li>
                                             <% end %>
                                         </ul>
                                     </td>

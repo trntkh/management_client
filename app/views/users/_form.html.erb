@@ -88,12 +88,10 @@
                         <% end %>
 
                         <div class="d-flex justify-content-center">
-                            <%= f.submit "Save", class: "btn btn-lg btn-primary btn-login fw-bold text-uppercase" %>
+                            <%= f.submit "Save", class: "btn btn-primary btn-login px-4 mr-1" %>
+                            <%= link_to 'Back', users_path, class: "btn btn-outline-primary px-4" %>
                         </div>
-
-                        <hr class="my-4">
                     <% end %>
-                    <%= link_to 'Back', users_path, class: "d-flex justify-content-center" %>
                 </div>
                 </div>
             </div>
