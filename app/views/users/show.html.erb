@@ -10,7 +10,44 @@
 									<h4><%= @user.full_name %></h4>
 									<p class="text-muted font-size-sm"><%= @user.address %></p>
 									<% if @user.id == current_user.id || current_user.admin? %>
-										<%= link_to 'Change Password', change_password_user_path(@user), class: "btn btn-outline-primary" %>
+										<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">Change Password</button>
+										<!-- Modal -->
+										<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title">Change Your Password</h5>
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<%= form_for @user, :html => { :multipart => true } do |f| %>
+													<div class="modal-body text-left">
+														<div class="form-group">
+															<%= f.label :email %>
+															<%= f.email_field :email, class: "form-control input-lg", autocomplete: "email" %>
+														</div>
+
+														<div class="form-group">
+															<%= f.label :password %><br />
+															<%= f.password_field :password, class: "form-control input-lg", autocomplete: "new-password" %>
+														</div>
+
+														<div class="form-group">
+															<%= f.label :password_confirmation %><br />
+															<%= f.password_field :password_confirmation, class: "form-control input-lg", autocomplete: "new-password" %>
+														</div>
+													</div>
+													<div class="modal-footer">
+														<div class="form-group">
+															<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+															<%= f.submit "Save", class: "btn btn-primary" %>
+														</div>
+													</div>
+												<% end %>
+											</div>
+										</div>
+										</div>
 									<% end %>
 								</div>
 							</div>
