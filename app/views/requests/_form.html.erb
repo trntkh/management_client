@@ -23,9 +23,11 @@
                                 </div>
                             </div>
 
+                            <p id="notice-request" class="font-italic text-danger"></p>
+
                             <div class="form-floating mb-3">
                                 <%= f.label "Shift time off" %>
-                                <%= f.text_field :shift_time, class: "form-control" %>
+                                <%= f.select :shift_time, Request.shift_times.keys, {},  class: "form-control text-capitalize" %>
                             </div>
 
                             <div class="form-floating mb-3">
@@ -35,7 +37,7 @@
                             <% if current_user.admin? %>
                                 <div class="form-floating mb-3">
                                     <%= f.label :status %>
-                                    <%= f.select :status, Request.statuses.keys, {}, { class: "form-control text-capitalized" } %>
+                                    <%= f.select :status, Request.statuses.keys, {}, { class: "form-control text-capitalize" } %>
                                 </div>
                             <% end %>
 
@@ -50,3 +52,20 @@
         </div>
     </div>
 </body>
+
+<script>
+    $(document).ready(function() {
+        $('#request_shift_time').on('change', function() {
+            if ($(this).val() == 'morning' || $(this).val() == 'afternoon') {
+                start_date = $('#request_start_date').val()
+                $('#request_end_date').val(start_date)
+                $('#request_end_date').attr('disabled', 'disabled');
+                $('#notice-request').text('(Notice: this is a half-day leave)')
+            }
+            else{
+                $('#request_end_date').removeAttr('disabled');
+                $('#notice-request').empty()
+            }
+        });
+    });
+</script>
