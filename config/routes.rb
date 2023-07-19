@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     end
   end
   resources :requests do
+    collection do
+      get :calendar
+    end
     resources :comments
   end
 
