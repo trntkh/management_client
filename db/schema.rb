@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_16_131405) do
+ActiveRecord::Schema.define(version: 2023_07_19_214738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 2023_07_16_131405) do
 
   create_table "requests", force: :cascade do |t|
     t.integer "admin_id"
-    t.datetime "start_date", null: false
-    t.datetime "end_date", null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
     t.integer "total_days", null: false
     t.integer "shift_time"
     t.text "reason"

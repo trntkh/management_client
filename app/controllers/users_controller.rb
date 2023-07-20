@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.filter_user_by(params)
+    @requests = Request.all
   end
   
   def my_requests

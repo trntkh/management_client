@@ -7,6 +7,7 @@
             <% end %>
             <% if user_signed_in? %>
                 <li class="nav-item"><%= link_to 'My Page', user_path(current_user), class: "nav-link" %></li>
+                <li class="nav-item"><%= link_to 'Calendar', calendar_requests_path, class: "nav-link" %></li>
                 <li class="nav-item"><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
             <% end %>
         </ul>

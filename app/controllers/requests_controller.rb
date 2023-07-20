@@ -10,15 +10,14 @@ class RequestsController < ApplicationController
   end
   
   def calendar
-    start_date = params.fetch(:start_date, Date.today)
-		start_date = start_date.to_datetime
-    @requests = Request.where(start_date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    start_time = params.fetch(:start_time, Date.today).to_datetime
+    @requests = Request.all
   end
 
   def new
     @request = Request.new
-    @request.start_date = Date.today
-    @request.end_date = Date.today
+    @request.start_time = Date.today
+    @request.end_time = Date.today
   end
   
   def edit
@@ -26,7 +25,7 @@ class RequestsController < ApplicationController
   end
    
   def create
-    total_days = (request_params[:end_date].to_date - request_params[:start_date].to_date).to_i + 1
+    total_days = (request_params[:end_time].to_date - request_params[:start_time].to_date).to_i + 1
     @request = Request.new(request_params)
     @request.user_id = current_user.id
     @request.total_days = total_days
@@ -40,7 +39,7 @@ class RequestsController < ApplicationController
 
   def update
     @request = Request.find(params[:id])
-    total_days = (request_params[:end_date].to_date - request_params[:start_date].to_date).to_i + 1
+    total_days = (request_params[:end_time].to_date - request_params[:start_time].to_date).to_i + 1
     @request.total_days = total_days
     if @request.update(request_params)
       redirect_to @request
@@ -58,6 +57,6 @@ class RequestsController < ApplicationController
 
   private
   def request_params
-    params.require(:request).permit(:admin_id, :start_date, :end_date, :total_days, :shift_time, :reason, :status, :name, :point)
+    params.require(:request).permit(:admin_id, :start_time, :end_time, :total_days, :shift_time, :reason, :status, :name, :point)
   end
 end

@@ -1,12 +1,25 @@
 <div class="container text-center">
-    <%= month_calendar(events: @requests) do |date, requests| %>
-        <div class="day">
-            <%= date.day %>
-        </div>
+  <%= month_calendar(events: @requests) do |date, requests| %>
+    <div class="">
+        <%= date.day %>
+    </div>
 
-        <% requests.each do |request| %>
-            <%= image_tag(request.user.avatar.thumb.url, style: "height:40ps;width:40px;", class: "rounded") if request.user.avatar? %>
-            <p><%= request.user.full_name %></p>
-        <% end %>
+    <% requests.each do |request| %>
+      <%= image_tag(request.user.avatar.thumb.url, style: "height:40ps;width:40px;", class: "rounded") if request.user.avatar? %>
+      <p><%= request.user.full_name %></p>
     <% end %>
+  <% end %>
 </div>
+
+<script>
+ $(document).ready(function() {
+    var calendarHeadingGenaric = $(".calendar-heading").children("span");
+    $(calendarHeadingGenaric).addClass("h4");
+  });
+
+  $(document).ready(function() {
+    var calendarHeadingLinks = $(".calendar-heading").children("a");
+    $(calendarHeadingLinks[0]).addClass("btn btn-primary float-left mb-1");
+    $(calendarHeadingLinks[1]).addClass("btn btn-primary float-right mb-1");
+  });
+</script>

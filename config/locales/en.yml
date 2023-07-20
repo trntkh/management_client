@@ -30,4 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  simple_calendar:
+    previous: "previous"
+    next: "next"
+    week: Woche
