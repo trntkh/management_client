@@ -31,6 +31,6 @@
 
 en:
   simple_calendar:
-    previous: "previous"
-    next: "next"
+    previous: "Previous"
+    next: "Next"
     week: Woche

@@ -71,10 +71,6 @@ background-color: #3b5998;
     margin-bottom: 10px;
 }
 
-.table.manage-candidates-top {
-    min-width: 650px;
-}
-
 .user-dashboard-info-box .candidate-list-details ul {
     color: #969696;
 }
@@ -114,7 +110,7 @@ background-color: #3b5998;
 }
 .candidate-list .candidate-list-image img {
     width: 80px;
-    height: 80px;
+    height: 85px;
     -o-object-fit: cover;
     object-fit: cover;
 }
@@ -133,7 +129,7 @@ background-color: #3b5998;
 }
 .candidate-list-details ul li {
     margin: 5px 10px 5px 0px;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .candidate-list .candidate-list-favourite-time {
@@ -148,26 +144,6 @@ background-color: #3b5998;
     display: block;
     margin: 0 auto;
 }
-.candidate-list .candidate-list-favourite-time .candidate-list-favourite {
-    display: inline-block;
-    position: relative;
-    height: 40px;
-    width: 40px;
-    line-height: 40px;
-    border: 1px solid #eeeeee;
-    border-radius: 100%;
-    text-align: center;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    margin-bottom: 20px;
-    font-size: 16px;
-    color: #646f79;
-}
-.candidate-list .candidate-list-favourite-time .candidate-list-favourite:hover {
-    background: #ffffff;
-    color: #e74c3c;
-}
-
 .candidate-banner .candidate-list:hover {
     position: inherit;
     -webkit-box-shadow: inherit;
@@ -177,19 +153,6 @@ background-color: #3b5998;
 
 .bg-white {
     background-color: #ffffff !important;
-}
-.p-4 {
-    padding: 1.5rem!important;
-}
-.mb-0, .my-0 {
-    margin-bottom: 0!important;
-}
-.shadow-sm {
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
-}
-
-.user-dashboard-info-box .candidates-list .thumb {
-    margin-right: 20px;
 }
 
 .card {

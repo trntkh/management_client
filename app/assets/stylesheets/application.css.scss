@@ -19,10 +19,12 @@
  .simple-calendar {
   display: inline-block;
   background: #ffffff;
+  width: 100%;
   .day {
   }
 
-  .wday-0 {}
+  .wday-0 {
+  }
   .wday-1 {}
   .wday-2 {}
   .wday-3 {}
