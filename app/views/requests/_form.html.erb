@@ -54,18 +54,18 @@
 </body>
 
 <script>
-    $(document).ready(function() {
-        $('#request_shift_time').on('change', function() {
-            if ($(this).val() == 'morning' || $(this).val() == 'afternoon') {
-                start_date = $('#request_start_date').val()
-                $('#request_end_date').val(start_date)
-                $('#request_end_date').attr('disabled', 'disabled');
-                $('#notice-request').text('(Notice: this is a half-day leave)')
-            }
-            else{
-                $('#request_end_date').removeAttr('disabled');
-                $('#notice-request').empty()
-            }
-        });
+  $(document).ready(function() {
+    $('#request_shift_time').on('change', function() {
+      if ($(this).val() == 'morning' || $(this).val() == 'afternoon') {
+        start_time = $('#request_start_time').val()
+          $('#request_end_time').val(start_time)
+          $('#request_end_time').attr('disabled', 'disabled');
+          $('#notice-request').text('(Notice: this is a half-day leave)')
+      }
+      else{
+        $('#request_end_time').removeAttr('disabled');
+        $('#notice-request').empty()
+      }
     });
+  });
 </script>
