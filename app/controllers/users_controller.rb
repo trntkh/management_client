@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.filter_user_by(params)
+    @pagy, @users = pagy(User.filter_user_by(params), items: 4)
     @requests = Request.all
   end
   

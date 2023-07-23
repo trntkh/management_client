@@ -70,3 +70,5 @@ gem "font-awesome-sass", "~> 6.4.0"
 gem 'simple_calendar', '~> 2.4'
 
 gem 'rails-i18n'
+
+gem 'pagy'

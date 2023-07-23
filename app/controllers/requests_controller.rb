@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @requests = Request.all
+    @pagy, @requests = pagy(Request.all, items: 6)
   end
 
   def show

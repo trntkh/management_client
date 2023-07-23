@@ -13,8 +13,9 @@ class User < ApplicationRecord
     if params[:key].present?
       users = User.where('first_name ILIKE ?', "%#{params[:key]}")
                   .or(User.where('last_name ILIKE ?', "%#{params[:key]}"))
+                  .order(first_name: :ASC)
     else
-      all
+      users = User.order('first_name')
     end
   end
 
