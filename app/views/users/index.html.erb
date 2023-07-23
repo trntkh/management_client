@@ -8,7 +8,7 @@
           </div>
           <% requests.each do |request| %>
             <%= image_tag(request.user.avatar.thumb.url, style: "height:40ps;width:40px;", class: "rounded") if request.user.avatar? %>
-            <p><%= request.user.full_name %></p>
+            <p><%= link_to request.user.full_name, request_path(request), class: 'text-secondary' %></p>
           <% end %>
         <% end %>
       </div>
